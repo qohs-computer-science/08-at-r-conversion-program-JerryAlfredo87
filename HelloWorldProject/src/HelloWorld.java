@@ -1,16 +1,20 @@
 import java.util.Scanner;
 import java.lang.Math;
 /*
- * TODO: Name
- * TODO: Date
- * TODO: Class Period
- * TODO: Program Description
+ * TODO: Name: Meade Havenstein
+ * TODO: Date: 9/17/25
+ * TODO: Class Period: 6
+ * TODO: Program Description: Converts binary to decimal and decimal to binary depending on user input.
  */
 public class HelloWorld {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) 
+	{
 		//TODO: Implement Program Requirements Here
+		boolean go = true;
 		Scanner scanner = new Scanner(System.in);
+		while (go==true){
+		
 		System.out.println("If you would like to convert decimal to binary, enter 1, if you would like to convert binary to decimal enter 2.");
 		int answer = scanner.nextInt();
 		scanner.nextLine();
@@ -18,40 +22,41 @@ public class HelloWorld {
 		{
 			System.out.println("You entered an invalid answer. If you would like to convert decimal to binary, enter 1, if you would like to convert binary to decimal enter 2.");
 			answer = scanner.nextInt();
-			if(answer == 1)
+			
+		}
+		if(answer == 1)
 			{
-				convertDecBin();
+				System.out.println("Please enter your number:");
+				int num = scanner.nextInt();
+				scanner.nextLine();
+				System.out.println(convertDecBin(num));
 			}
 			else
 			{
-				convertBinDec();
+				System.out.println("Please enter your number:");
+				String num = scanner.nextLine();
+				
+				System.out.println(convertBinDec(num));
 			}
-			System.out.println("Would you like to enter a new number? (enter yes or no)")
-			if()
+		System.out.println("Would you like to convert something else? (enter 'true' or 'false')");
+		go = scanner.nextBoolean();
+		
 		}
 		scanner.close();
 	}
-public static void convertDecBin()
+	public static String convertDecBin(int num)
 	{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter your number:");
-		int num = scanner.nextInt();
-		scanner.nextLine();
 		String number = "";
 		while(num > 0)
 		{
 			number = num%2 + number;
 			num/=2;
 		}
-		System.out.println(number);
-		scanner.close();
+		return number;
 	}
 
-	public static void convertBinDec()
+	public static int convertBinDec(String num)
 	{
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter your number:");
-		String num = scanner.nextLine();
 		double temp = 0.0;
 		for(int i = num.length() - 1; i >= 0; i--)
 		{
@@ -61,8 +66,6 @@ public static void convertDecBin()
 			}
 		}
 		int number = (int)temp;
-		System.out.println(number);
-		scanner.close();
+		return number;
 	}
-
 }
