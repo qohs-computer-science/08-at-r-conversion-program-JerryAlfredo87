@@ -23,27 +23,27 @@ public class HelloWorld {
 			System.out.println("You entered an invalid answer. If you would like to convert decimal to binary, enter 1, if you would like to convert binary to decimal enter 2.");
 			answer = scanner.nextInt();
 			
-		}
+		}//end while
 		if(answer == 1)
 			{
 				System.out.println("Please enter your number:");
 				int num = scanner.nextInt();
 				scanner.nextLine();
 				System.out.println(convertDecBin(num));
-			}
+			}//end if
 			else
 			{
 				System.out.println("Please enter your number:");
 				String num = scanner.nextLine();
 				
 				System.out.println(convertBinDec(num));
-			}
+			}//end else
 		System.out.println("Would you like to convert something else? (enter 'true' or 'false')");
 		go = scanner.nextBoolean();
 		
-		}
+		}//end while
 		scanner.close();
-	}
+	}//end main
 	public static String convertDecBin(int num)
 	{
 		String number = "";
@@ -51,9 +51,9 @@ public class HelloWorld {
 		{
 			number = num%2 + number;
 			num/=2;
-		}
+		}//end while
 		return number;
-	}
+	}//end convertDecBin
 
 	public static int convertBinDec(String num)
 	{
@@ -63,9 +63,9 @@ public class HelloWorld {
 			if(num.charAt(i) == '1')
 			{
 				temp += Math.pow(2, num.length() - 1 - i);
-			}
-		}
+			}//end if
+		}//end for
 		int number = (int)temp;
 		return number;
-	}
-}
+	}//end convertBinDec
+}//end class
